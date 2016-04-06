@@ -1,0 +1,1 @@
+json.partial! 'doctor.json.jbuilder', doctor: @doctor
