@@ -1,4 +1,4 @@
-class DoctorsController < ApplicationController
+class V1::DoctorsController < ApplicationController
   def index
     @doctors = Doctor.all
     render 'index.json.jbuilder'
