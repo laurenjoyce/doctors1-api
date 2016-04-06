@@ -10,10 +10,14 @@ class DoctorsController < ApplicationController
   end
 
   def create
-    @dotor = Doctor.create(first_name: params[:first_name],
-                           last_name: params[:last_name],
-                           practice: params[:practice],
-                           university: params[:university])
-    render 'show.json.jbuilder'
+    @doctor = Doctor.new(first_name: params[:first_name],
+                         last_name: params[:last_name],
+                         practice: params[:practice],
+                         university: params[:university])
+    if @doctor.save
+      render 'show.json.jbuilder'
+    else
+      render json: {message: "Could not create a doctor!"}
+    end  
   end
 end
